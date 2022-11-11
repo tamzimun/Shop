@@ -7,15 +7,6 @@
 
 import Foundation
 
-struct FoodEntity: Codable {
-    var id: Int
-    var category: String
-    var image: String
-    var foodName: String
-    var description: String
-    var price: String
-}
-
 struct Goods: Codable {
     var id: Int
     var title: String

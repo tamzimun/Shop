@@ -35,6 +35,8 @@
 		0DDF5DDC291E7DEB0094064B /* DetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDF5DDB291E7DEB0094064B /* DetailsInteractor.swift */; };
 		0DDF5DDE291E7E230094064B /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDF5DDD291E7E230094064B /* DetailsPresenter.swift */; };
 		0DDF5DE0291E7E580094064B /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDF5DDF291E7E580094064B /* DetailsViewController.swift */; };
+		0DDF5DE4291E9D950094064B /* GoodsImagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDF5DE3291E9D950094064B /* GoodsImagesCollectionViewCell.swift */; };
+		0DDF5DE6291E9DF20094064B /* GoodsImagesDataDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDF5DE5291E9DF20094064B /* GoodsImagesDataDisplayManager.swift */; };
 		8D259477C4A42A914530895E /* Pods_Shop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F3415FA4B7BF10C4371EFF /* Pods_Shop.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,8 @@
 		0DDF5DDB291E7DEB0094064B /* DetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsInteractor.swift; sourceTree = "<group>"; };
 		0DDF5DDD291E7E230094064B /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
 		0DDF5DDF291E7E580094064B /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		0DDF5DE3291E9D950094064B /* GoodsImagesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsImagesCollectionViewCell.swift; sourceTree = "<group>"; };
+		0DDF5DE5291E9DF20094064B /* GoodsImagesDataDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsImagesDataDisplayManager.swift; sourceTree = "<group>"; };
 		63D9BA7225A7F04FC16BF7DD /* Pods-Shop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shop.release.xcconfig"; path = "Target Support Files/Pods-Shop/Pods-Shop.release.xcconfig"; sourceTree = "<group>"; };
 		9A9F06AD9E65E2C7F076799B /* Pods-Shop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shop.debug.xcconfig"; path = "Target Support Files/Pods-Shop/Pods-Shop.debug.xcconfig"; sourceTree = "<group>"; };
 		B8F3415FA4B7BF10C4371EFF /* Pods_Shop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -281,6 +285,8 @@
 			isa = PBXGroup;
 			children = (
 				0DDF5DDF291E7E580094064B /* DetailsViewController.swift */,
+				0DDF5DE5291E9DF20094064B /* GoodsImagesDataDisplayManager.swift */,
+				0DDF5DE3291E9D950094064B /* GoodsImagesCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -436,6 +442,7 @@
 				0DDF5D84291E29C50094064B /* SceneDelegate.swift in Sources */,
 				0DDF5DE0291E7E580094064B /* DetailsViewController.swift in Sources */,
 				0DDF5DC9291E360E0094064B /* ShopEntity.swift in Sources */,
+				0DDF5DE4291E9D950094064B /* GoodsImagesCollectionViewCell.swift in Sources */,
 				0DDF5DBF291E33EC0094064B /* BannersCollectionViewCell.swift in Sources */,
 				0DDF5DB7291E33730094064B /* BannerDataDisplayManager.swift in Sources */,
 				0DDF5DC1291E340C0094064B /* MainPresenter.swift in Sources */,
@@ -445,6 +452,7 @@
 				0DDF5DB9291E338E0094064B /* MainDataDisplayManager.swift in Sources */,
 				0DDF5DAF291E32680094064B /* FavoriteViewController.swift in Sources */,
 				0DDF5DDC291E7DEB0094064B /* DetailsInteractor.swift in Sources */,
+				0DDF5DE6291E9DF20094064B /* GoodsImagesDataDisplayManager.swift in Sources */,
 				0DDF5D9D291E30790094064B /* RequestType.swift in Sources */,
 				0DDF5DB3291E32A10094064B /* MainViewController.swift in Sources */,
 				0DDF5DD8291E7D8C0094064B /* DetailsAssembly.swift in Sources */,
