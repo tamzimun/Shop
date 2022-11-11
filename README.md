@@ -2,10 +2,18 @@
 
 Part 1
 
-https://user-images.githubusercontent.com/52825620/201403289-3558d19f-84ce-4fb5-bfed-bdb2fb10beaa.mp4
+
+https://user-images.githubusercontent.com/52825620/201403782-9f3fdb5d-9d26-4e0c-b0a7-dd6726f34c2d.mp4
+
+
+
 
 Part 2
 
 
-https://user-images.githubusercontent.com/52825620/201403490-5a574be8-d809-49df-a4e0-1869dc25832a.mp4
+
+
+Uploading Simulator Screen Recording - iPhone 14 Pro - 2022-11-12 at 00.17.53.mp4…
+
+
 
