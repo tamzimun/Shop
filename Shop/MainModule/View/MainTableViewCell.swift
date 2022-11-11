@@ -78,7 +78,7 @@ class MainTableViewCell: UITableViewCell {
     }
     
     func setupViews(){
-//        selectionStyle = .none
+        selectionStyle = .none
         
         contentView.addSubview(foodImageView)
         foodImageView.snp.makeConstraints { make in

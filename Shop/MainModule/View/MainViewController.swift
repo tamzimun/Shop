@@ -22,6 +22,7 @@ protocol MainViewInput: AnyObject {
 protocol MainViewOutput {
     func didLoadView()
     func didSelectCategoryCell(with category: String)
+    func didSelectGoodsCell(with goods: Goods)
 }
 
 
@@ -110,6 +111,10 @@ class MainViewController: UIViewController {
         
         mainDataDisplayManager?.onCategoryDidSelect = { [ weak self] category in
             self?.output?.didSelectCategoryCell(with: category)
+        }
+        
+        mainDataDisplayManager?.onGoodsDidSelect = { [ weak self] goods in
+            self?.output?.didSelectGoodsCell(with: goods)
         }
     }
 

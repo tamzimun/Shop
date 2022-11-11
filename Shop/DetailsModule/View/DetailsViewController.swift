@@ -32,7 +32,6 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         output?.didloadview()
-        view.backgroundColor = .red
         makeConstraints()
     }
     

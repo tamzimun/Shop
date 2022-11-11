@@ -24,6 +24,7 @@ final class MainAssembly {
         presenter.interactor = interactor
         presenter.router = router
         interactor.output = presenter
+        router.viewController = viewController
         return viewController
     }
 }

@@ -37,6 +37,10 @@ final class MainPresenter: MainViewOutput, MainInteractorOutput {
         view.handleObtainedGoods(goods)
     }
     
+    func didSelectGoodsCell(with goods: Goods) {
+        router.openDetailsModule(with: goods)
+    }
+    
     func didSelectCategoryCell(with category: String) {
         interactor.ontainFilteredGoods(with: goods, category: category)
     }
