@@ -9,7 +9,7 @@ import UIKit
 
 final class MainAssembly {
     func assemle() -> UIViewController {
-        let menuDataDisplayManager = MainDataDisplayManager()
+        let mainDataDisplayManager = MainDataDisplayManager()
         let bannerDataDisplayManager = BannerDataDisplayManager()
         let viewController = MainViewController()
         let presenter = MainPresenter()
@@ -17,7 +17,7 @@ final class MainAssembly {
         let interactor = MainInteractor(network: network)
         let router = MainRouter()
         
-        viewController.mainDataDisplayManager = menuDataDisplayManager
+        viewController.mainDataDisplayManager = mainDataDisplayManager
         viewController.bannersDataDisplayManager = bannerDataDisplayManager
         viewController.output = presenter
         presenter.view = viewController

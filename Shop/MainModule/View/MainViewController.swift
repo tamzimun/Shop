@@ -80,7 +80,7 @@ class MainViewController: UIViewController {
         return collection
     }()
     
-    private let menuTableView: TableView = {
+    private let mainTableView: TableView = {
         let table = TableView()
         table.register(MainTableViewCell.self, forCellReuseIdentifier: "MainTableViewCell")
         table.showsVerticalScrollIndicator = false
@@ -104,9 +104,9 @@ class MainViewController: UIViewController {
         categoriesCollectionView.dataSource = mainDataDisplayManager
         bannersCollectionView.delegate = bannersDataDisplayManager
         bannersCollectionView.dataSource = bannersDataDisplayManager
-        menuTableView.delegate = mainDataDisplayManager
-        menuTableView.dataSource = mainDataDisplayManager
-        menuTableView.showLoadingPlaceholder()
+        mainTableView.delegate = mainDataDisplayManager
+        mainTableView.dataSource = mainDataDisplayManager
+        mainTableView.showLoadingPlaceholder()
         scrollView.delegate = self
         
         mainDataDisplayManager?.onCategoryDidSelect = { [ weak self] category in
@@ -159,8 +159,8 @@ class MainViewController: UIViewController {
             make.height.equalTo(32)
         }
 
-        scrollView.addSubview(menuTableView)
-        menuTableView.snp.makeConstraints { make in
+        scrollView.addSubview(mainTableView)
+        mainTableView.snp.makeConstraints { make in
             make.top.equalTo(categoriesCollectionView.snp.bottom).offset(24)
             make.right.equalTo(bannersCollectionView.snp.right)
             make.left.bottom.equalTo(scrollView.contentInset)
@@ -186,13 +186,13 @@ extension MainViewController: MainViewInput {
     
     func handleObtainedGoods(_ goods: [Goods]) {
         mainDataDisplayManager?.goods = goods
-        menuTableView.reloadData()
+        mainTableView.reloadData()
     }
     
     func handleObtainedFilteredGoods(_ goodsId: Int) {
         if goodsId > 0 {
             let indexPath = NSIndexPath(row: goodsId - 1, section: 0)
-            menuTableView.scrollToRow(at: indexPath as IndexPath, at: .top, animated: true)
+            mainTableView.scrollToRow(at: indexPath as IndexPath, at: .top, animated: true)
         }
     }
 }
@@ -201,8 +201,8 @@ extension MainViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
         if (scrollView.contentOffset.y < 20){
-            menuTableView.isScrollEnabled = false
-            menuTableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+            mainTableView.isScrollEnabled = false
+            mainTableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         }
         bannersCollectionView.transform = CGAffineTransform(translationX: 0, y: max(0, scrollView.contentOffset.y - bannersCollectionView.bounds.maxY - 30))
     }
@@ -220,8 +220,8 @@ extension MainViewController: UIScrollViewDelegate {
     func checkHasScrolledToBottom() {
         let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height
         if bottomEdge >= scrollView.contentSize.height {
-            menuTableView.isScrollEnabled = true
-            menuTableView.layer.maskedCorners = []
+            mainTableView.isScrollEnabled = true
+            mainTableView.layer.maskedCorners = []
         }
     }
 }
