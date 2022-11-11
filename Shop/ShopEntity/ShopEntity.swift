@@ -21,8 +21,8 @@ struct Goods: Codable {
     var title: String
     var description: String
     var price: Int
-    var discountPercentage: Decimal
-    var rating: Decimal
+    var discountPercentage: Float
+    var rating: Float
     var stock: Int
     var brand: String
     var category: String

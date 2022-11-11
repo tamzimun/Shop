@@ -15,7 +15,7 @@ enum Constants {
 protocol MainViewInput: AnyObject {
     func handleObtainedBanners(_ banners: [BannerEntity])
     func handleObtainedGoodsCategories(_ categories: [GoodsCategoryEntity])
-    func handleObtainedGoods(_ goods: GoodsEntity)
+    func handleObtainedGoods(_ goods: [Goods])
     func handleObtainedFilteredGoods(_ goodsId: Int)
 }
 
@@ -27,7 +27,7 @@ protocol MainViewOutput {
 
 class MainViewController: UIViewController {
     var output: MainViewOutput?
-    var menuDataDisplayManager: MainDataDisplayManager?
+    var mainDataDisplayManager: MainDataDisplayManager?
     var bannersDataDisplayManager: BannerDataDisplayManager?
     
     private let shopLabel: UILabel = {
@@ -99,16 +99,16 @@ class MainViewController: UIViewController {
     }
     
     private func setUpTableCollectionViews() {
-        categoriesCollectionView.delegate = menuDataDisplayManager
-        categoriesCollectionView.dataSource = menuDataDisplayManager
+        categoriesCollectionView.delegate = mainDataDisplayManager
+        categoriesCollectionView.dataSource = mainDataDisplayManager
         bannersCollectionView.delegate = bannersDataDisplayManager
         bannersCollectionView.dataSource = bannersDataDisplayManager
-        menuTableView.delegate = menuDataDisplayManager
-        menuTableView.dataSource = menuDataDisplayManager
+        menuTableView.delegate = mainDataDisplayManager
+        menuTableView.dataSource = mainDataDisplayManager
         menuTableView.showLoadingPlaceholder()
         scrollView.delegate = self
         
-        menuDataDisplayManager?.onCategoryDidSelect = { [ weak self] category in
+        mainDataDisplayManager?.onCategoryDidSelect = { [ weak self] category in
             self?.output?.didSelectCategoryCell(with: category)
         }
     }
@@ -171,7 +171,7 @@ extension MainViewController: MainViewInput {
     }
     
     func handleObtainedGoodsCategories(_ categories: [GoodsCategoryEntity]) {
-        menuDataDisplayManager?.categories = categories
+        mainDataDisplayManager?.categories = categories
         categoriesCollectionView.reloadData()
         
         // selects first item of collection view, when categories are loaded
@@ -179,8 +179,8 @@ extension MainViewController: MainViewInput {
         categoriesCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .top)
     }
     
-    func handleObtainedGoods(_ goods: GoodsEntity) {
-        menuDataDisplayManager?.goods = goods
+    func handleObtainedGoods(_ goods: [Goods]) {
+        mainDataDisplayManager?.goods = goods
         menuTableView.reloadData()
     }
     

@@ -5,10 +5,19 @@
 //  Created by Aida on 11.11.2022.
 //
 
-import Foundation
+import UIKit
 
-protocol MainRouterInput {}
+protocol MainRouterInput {
+    func openDetailsModule(with goods: Goods)
+}
 
 final class MainRouter: MainRouterInput {
-    //Here will be code for route to another ViewController
+    weak var viewController: UIViewController?
+    
+    func openDetailsModule(with goods: Goods) {
+        let viewController = DetailsAssembly().assemble() { (input) in
+            input.configure(with: goods)
+        }
+        self.viewController?.navigationController?.pushViewController(viewController, animated: true)
+    }
 }

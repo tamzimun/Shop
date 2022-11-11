@@ -9,11 +9,10 @@ import UIKit
 
 final class MainDataDisplayManager: NSObject {
     var categories: [GoodsCategoryEntity] = []
-    var goods: GoodsEntity = {
-        GoodsEntity.init(products: [Goods.init(id: 1, title: "", description: "", price: 1, discountPercentage: 1, rating: 1, stock: 1, brand: "", category: "", thumbnail: "", images: ["",""])])
-    }()
+    var goods: [Goods] = []
     
     var onCategoryDidSelect: ((String) -> Void)?
+    var onGoodsDidSelect: ((Goods) -> Void)?
 }
 
 extension MainDataDisplayManager: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -40,13 +39,17 @@ extension MainDataDisplayManager: UICollectionViewDelegate, UICollectionViewData
 extension MainDataDisplayManager: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return goods.products.count
+        return goods.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainTableViewCell", for: indexPath) as! MainTableViewCell
-        cell.configure(with: goods.products[indexPath.row])
+        cell.configure(with: goods[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        onGoodsDidSelect?(goods[indexPath.row])
     }
 }
 

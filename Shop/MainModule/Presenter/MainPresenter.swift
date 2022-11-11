@@ -28,9 +28,7 @@ final class MainPresenter: MainViewOutput, MainInteractorOutput {
         GoodsCategoryEntity.init(category: "Home-decoration")
     ]
     
-    private var goods: GoodsEntity = {
-        GoodsEntity.init(products: [Goods.init(id: 1, title: "", description: "", price: 1, discountPercentage: 1, rating: 1, stock: 1, brand: "", category: "", thumbnail: "", images: ["",""])])
-    }()
+    private var goods: [Goods] = []
     
     func didLoadView() {
         interactor.obtainGoods()
@@ -43,8 +41,8 @@ final class MainPresenter: MainViewOutput, MainInteractorOutput {
         interactor.ontainFilteredGoods(with: goods, category: category)
     }
     
-    func didLoadGoods(_ goods: GoodsEntity) {
-        self.goods = goods
+    func didLoadGoods(_ goodsEntity: GoodsEntity) {
+        self.goods = goodsEntity.products
         view.handleObtainedGoods(goods)
     }
     

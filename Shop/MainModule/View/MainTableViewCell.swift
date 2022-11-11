@@ -19,6 +19,18 @@ class MainTableViewCell: UITableViewCell {
         return image
     }()
 
+    private let discountLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.layer.cornerRadius = 10
+        label.backgroundColor = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)
+        label.clipsToBounds = true
+        label.textAlignment = .center
+        return label
+    }()
+    
     private let foodNamelabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.black
@@ -59,13 +71,14 @@ class MainTableViewCell: UITableViewCell {
     func configure(with goods: Goods) {
         let url = URL(string: goods.thumbnail)
         foodImageView.kf.setImage(with: url)
+        discountLabel.text = "-\(goods.discountPercentage)%"
         foodNamelabel.text = goods.title
         descriptionLabel.text = goods.description
         priceLabel.text = "\(goods.price) tg"
     }
     
     func setupViews(){
-        selectionStyle = .none
+//        selectionStyle = .none
         
         contentView.addSubview(foodImageView)
         foodImageView.snp.makeConstraints { make in
@@ -73,6 +86,14 @@ class MainTableViewCell: UITableViewCell {
             make.left.equalTo(contentView).offset(16)
             make.height.equalTo(133)
             make.width.equalTo(133)
+        }
+        
+        contentView.addSubview(discountLabel)
+        discountLabel.snp.makeConstraints { make in
+            make.top.equalTo(foodImageView.snp.top).offset(7)
+            make.right.equalTo(foodImageView.snp.right).offset(-7)
+            make.height.equalTo(30)
+            make.width.equalTo(55)
         }
         
         contentView.addSubview(foodNamelabel)

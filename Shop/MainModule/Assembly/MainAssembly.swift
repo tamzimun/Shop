@@ -17,7 +17,7 @@ final class MainAssembly {
         let interactor = MainInteractor(network: network)
         let router = MainRouter()
         
-        viewController.menuDataDisplayManager = menuDataDisplayManager
+        viewController.mainDataDisplayManager = menuDataDisplayManager
         viewController.bannersDataDisplayManager = bannerDataDisplayManager
         viewController.output = presenter
         presenter.view = viewController

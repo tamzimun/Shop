@@ -9,7 +9,7 @@ import Foundation
 
 protocol MainInteractorInput {
     func obtainGoods()
-    func ontainFilteredGoods(with goods: GoodsEntity, category: String)
+    func ontainFilteredGoods(with goods: [Goods], category: String)
 }
 
 protocol MainInteractorOutput: AnyObject {
@@ -36,9 +36,9 @@ final class MainInteractor: MainInteractorInput {
         }
     }
     
-    func ontainFilteredGoods(with goods: GoodsEntity, category: String) {
+    func ontainFilteredGoods(with goods: [Goods], category: String) {
         var goodsId: Int = 0
-        for item in goods.products {
+        for item in goods {
             if item.category.lowercased() == category.lowercased() {
                 goodsId = item.id
                 break
