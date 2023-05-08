@@ -2,7 +2,7 @@
 //  ProfileViewController.swift
 //  Shop
 //
-//  Created by Aida on 11.11.2022.
+//  Created by tamzimun on 11.11.2022.
 //
 
 import UIKit
